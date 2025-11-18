@@ -1,19 +1,49 @@
-<view class="container">
-  <view class="card">
-    <text style="font-size:18px;font-weight:600;">管理控制台</text>
+<view class="home-page">
+  <!-- 顶部背景图 -->
+  <image class="hero" src="/assets/images/home-bg.png" mode="aspectFill"></image>
 
-    <!-- 改为图标网格 -->
-    <view class="grid" wx:for="{{menus}}" wx:key="id" bindtap="onIconTap" data-url="{{item.url}}">
-      <view class="grid-item" data-url="{{item.url}}">
-        <text class="grid-emoji">{{item.icon}}</text>
-        <text class="grid-label">{{item.label}}</text>
-      </view>
+  <!-- 功能宫格 -->
+  <view class="card">
+    <view class="card-title">快捷功能</view>
+    <view class="grid">
+      <navigator url="/pages/announcement/list" class="grid-item">
+        <image class="icon" src="/assets/icons/annc.png"></image>
+        <view class="label">本店公告</view>
+      </navigator>
+      <navigator url="/pages/pt/packages" class="grid-item">
+        <image class="icon" src="/assets/icons/pt.png"></image>
+        <view class="label">私教预约</view>
+      </navigator>
+      <navigator url="/pages/courses/catalog" class="grid-item">
+        <image class="icon" src="/assets/icons/project.png"></image>
+        <view class="label">项目预约</view>
+      </navigator>
+      <navigator url="/pages/courses/schedule" class="grid-item">
+        <image class="icon" src="/assets/icons/group.png"></image>
+        <view class="label">团课预约</view>
+      </navigator>
+      <navigator url="/pages/booking/calendar" class="grid-item">
+        <image class="icon" src="/assets/icons/calendar.png"></image>
+        <view class="label">预约日历</view>
+      </navigator>
+      <navigator url="/pages/shop/index" class="grid-item">
+        <image class="icon" src="/assets/icons/shop.png"></image>
+        <view class="label">商城</view>
+      </navigator>
     </view>
   </view>
 
+  <!-- 公告资讯 -->
   <view class="card">
-    <text class="small-muted">快速操作</text>
-    <button bindtap="onQuickBooking">新建预约</button>
-    <button bindtap="onQuickOrder">新建订单</button>
+    <view class="card-title">公告资讯</view>
+    <view class="annc-list">
+      <block wx:for="{{announcements}}" wx:key="id">
+        <navigator url="/pages/announcement/list" class="annc-item">
+          <view class="annc-title">{{item.title}}</view>
+          <view class="annc-time">{{item.time}}</view>
+        </navigator>
+      </block>
+      <view wx:if="{{announcements.length === 0}}" class="empty">暂无公告</view>
+    </view>
   </view>
 </view>
