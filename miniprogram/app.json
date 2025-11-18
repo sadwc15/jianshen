@@ -1,5 +1,10 @@
 {
   "pages": [
+    "pages/home/home",
+    "pages/announcement/list",
+    "pages/booking/calendar",
+    "pages/user/index",
+
     "pages/coach/list",
     "pages/coach/detail",
     "pages/coach/report",
@@ -10,12 +15,44 @@
     "pages/members/list",
     "pages/pt/packages",
     "pages/orders/list",
-    "pages/home/home"
+    "pages/shop/index"
   ],
   "window": {
     "navigationBarTitleText": "健身俱乐部管理",
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#07c160",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/announcement/list",
+        "text": "公告",
+        "iconPath": "assets/icons/announcement.png",
+        "selectedIconPath": "assets/icons/announcement-active.png"
+      },
+      {
+        "pagePath": "pages/booking/calendar",
+        "text": "预约",
+        "iconPath": "assets/icons/calendar.png",
+        "selectedIconPath": "assets/icons/calendar-active.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "assets/icons/user.png",
+        "selectedIconPath": "assets/icons/user-active.png"
+      }
+    ]
   }
 }
