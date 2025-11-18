@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="card">
+    <input placeholder="搜索会员（姓名/手机号）" bindinput="onSearch" />
+  </view>
+  <block wx:for="{{members}}" wx:key="id">
+    <navigator url="/pages/members/detail?id={{item.id}}">
+      <view class="card row">
+        <view>
+          <text>{{item.name}}</text>
+          <text class="small-muted"> · {{item.phone}}</text>
+        </view>
+        <text class="small-muted">{{item.status}}</text>
+      </view>
+    </navigator>
+  </block>
+  <view wx:if="{{members.length==0}}" class="small-muted">暂无会员，点击新增</view>
+  <button bindtap="onAddMember">新增会员</button>
+</view>
+

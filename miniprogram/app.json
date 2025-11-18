@@ -1,0 +1,21 @@
+{
+  "pages": [
+    "pages/coach/list",
+    "pages/coach/detail",
+    "pages/coach/report",
+    "pages/courses/catalog",
+    "pages/courses/schedule",
+    "pages/booking/detail",
+    "pages/analytics/dashboard",
+    "pages/members/list",
+    "pages/pt/packages",
+    "pages/orders/list",
+    "pages/home/home"
+  ],
+  "window": {
+    "navigationBarTitleText": "健身俱乐部管理",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "light"
+  }
+}

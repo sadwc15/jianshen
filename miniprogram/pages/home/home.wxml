@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="card">
+    <text style="font-size:18px;font-weight:600;">管理控制台</text>
+
+    <!-- 改为图标网格 -->
+    <view class="grid" wx:for="{{menus}}" wx:key="id" bindtap="onIconTap" data-url="{{item.url}}">
+      <view class="grid-item" data-url="{{item.url}}">
+        <text class="grid-emoji">{{item.icon}}</text>
+        <text class="grid-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="small-muted">快速操作</text>
+    <button bindtap="onQuickBooking">新建预约</button>
+    <button bindtap="onQuickOrder">新建订单</button>
+  </view>
+</view>

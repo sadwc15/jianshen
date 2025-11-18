@@ -1,0 +1,23 @@
+<view class="container" style="padding-bottom:48rpx;">
+  <view class="card">
+    <input placeholder="搜索教练（姓名/专长）" bindinput="onSearch" />
+    <picker range="{{levelOptions}}" value="{{levelIndex}}" bindchange="onLevelChange" style="margin-top:8px;">
+      <view>级别：<text class="badge">{{levelOptions[levelIndex]}}</text></view>
+    </picker>
+  </view>
+  <block wx:if="{{empty}}">
+    <view class="card"><text class="small-muted">暂无匹配教练</text></view>
+  </block>
+  <block wx:for="{{filteredCoaches}}" wx:key="id">
+    <navigator url="/pages/coach/detail?id={{item.id}}">
+      <view class="card row">
+        <view>
+          <text>{{item.name}}</text>
+          <text class="small-muted">{{item.level}} · {{item.cert}} · {{item.speciality}}</text>
+        </view>
+        <button bindtap="onSchedule" data-id="{{item.id}}">排课</button>
+      </view>
+    </navigator>
+  </block>
+</view>
+

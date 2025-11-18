@@ -1,0 +1,21 @@
+<view class="container" style="padding-bottom:48rpx;">
+  <view class="card">
+    <text>{{coach.name}}</text>
+    <text class="small-muted">{{coach.cert}} · {{coach.experience}}</text>
+    <text class="small-muted">{{coach.intro}}</text>
+    <view class="row" style="margin-top:8px;">
+      <button size="mini" bindtap="onViewSchedule">查看排期</button>
+      <button size="mini" bindtap="onCreateReport">生成训练报告</button>
+    </view>
+  </view>
+  <view class="card">
+    <text>私教课包</text>
+    <block wx:for="{{packages}}" wx:key="id">
+      <view class="row" style="margin-top:6px;">
+        <text>{{item.title}} · {{item.sessions}}次 · 有效期{{item.validity}}天</text>
+        <button bindtap="onBuyPackage" data-id="{{item.id}}">购买 ￥{{item.price}}</button>
+      </view>
+    </block>
+  </view>
+</view>
+

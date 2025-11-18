@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="card">
+    <text style="font-weight:600">预约详情</text>
+    <text class="small-muted">{{detailInfo}}</text>
+  </view>
+
+  <view class="card">
+    <text class="small-muted">选择会员</text>
+    <picker range="{{members}}" range-key="name" value="{{memberIndex}}" bindchange="onMemberChange">
+      <view>
+        <block wx:if="{{members.length}}">
+          <text>{{members[memberIndex].name}}</text>
+        </block>
+        <block wx:else>
+          <text>请选择</text>
+        </block>
+      </view>
+    </picker>
+  </view>
+
+  <view class="card">
+    <text>课程：{{course.title}}</text>
+    <text>时间：{{schedule.date}} {{schedule.time}}</text>
+    <view class="row" style="margin-top:6px;">
+      <text class="small-muted">需审批</text>
+      <switch checked="{{approvalNeeded}}" bindchange="onToggleApproval"/>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="small-muted">改期到</text>
+    <picker range="{{altSchedules}}" range-key="label" value="{{altIndex}}" bindchange="onAltScheduleChange">
+      <view>
+        <block wx:if="{{altSchedules.length}}">
+          <text>{{altSchedules[altIndex].label}}</text>
+        </block>
+        <block wx:else>
+          <text>请选择</text>
+        </block>
+      </view>
+    </picker>
+  </view>
+
+  <view wx:if="{{loading}}" class="card">
+    <text class="small-muted">加载中...</text>
+  </view>
+
+  <button type="primary" bindtap="onConfirmBooking" loading="{{loadingAction}}">确认并支付</button>
+  <button style="margin-top:8px;" bindtap="onReschedule">改期</button>
+  <button type="warn" style="margin-top:8px;" bindtap="onCancelBooking">取消预约</button>
+</view>

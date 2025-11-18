@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="card">
+    <text style="font-weight:600">课程目录</text>
+  </view>
+  <block wx:for="{{courses}}" wx:key="id">
+    <view class="card">
+      <view class="row">
+        <view>
+          <text>{{item.title}}</text>
+          <text class="small-muted">{{item.coach}} · {{item.level}}</text>
+        </view>
+        <view>
+          <button bindtap="viewSchedule" data-id="{{item.id}}">查看排期</button>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+

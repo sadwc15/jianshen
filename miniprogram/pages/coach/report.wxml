@@ -1,0 +1,9 @@
+<view class="container">
+  <!-- ...existing code... -->
+  <view class="card">
+    <text style="font-weight:600">课后训练报告</text>
+    <text class="small-muted">教练ID：{{coachId}}</text>
+  </view>
+  <!-- ...existing code... -->
+  <button type="primary" bindtap="onSubmit">提交报告</button>
+</view>

@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="card">
+    <text style="font-weight:600">排期 - {{courseTitle}}</text>
+    <text class="small-muted">选择班次进行预约/候补</text>
+  </view>
+  <block wx:for="{{schedules}}" wx:key="id">
+    <view class="card">
+      <view class="row">
+        <view>
+          <text>{{item.date}} {{item.time}}</text>
+          <text class="small-muted">剩余名额：{{item.remaining}} / 总：{{item.capacity}}</text>
+        </view>
+        <view>
+          <button bindtap="onBook" data-id="{{item.id}}" disabled="{{item.remaining<=0}}">预约</button>
+          <button bindtap="onJoinWaitlist" data-id="{{item.id}}" wx:if="{{item.remaining<=0}}">加入候补</button>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
